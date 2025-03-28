@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fashion Brand Launch Strategy</title>
   <style>
     :root {
@@ -14,17 +14,20 @@
       --red: #d60000;
       --dark-red: #9e0000;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
+
     body {
       background-color: var(--black);
       color: var(--white);
       line-height: 1.6;
     }
+
     header {
       background-color: rgba(10, 10, 10, 0.95);
       position: fixed;
@@ -33,6 +36,7 @@
       padding: 1rem 0;
       border-bottom: 1px solid var(--gray);
     }
+
     nav {
       max-width: 1200px;
       margin: 0 auto;
@@ -41,60 +45,69 @@
       align-items: center;
       padding: 0 2rem;
     }
+
     .logo {
       font-weight: 700;
       font-size: 1.5rem;
       color: var(--white);
       text-decoration: none;
     }
+
     .logo span {
       color: var(--red);
     }
+
     .nav-links {
       display: flex;
       gap: 2rem;
     }
+
     .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
-    .nav-links a:hover, .nav-links a:focus {
+
+    .nav-links a:hover,
+    .nav-links a:focus {
       color: var(--red);
       text-decoration: underline;
     }
+
     section {
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .hero {
       padding-top: 9rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-      gap: 2rem;
     }
+
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 1rem;
       line-height: 1.2;
     }
-    h1 span, h2 span {
+
+    h1 span,
+    h2 span {
       color: var(--red);
     }
+
     h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
       text-align: center;
     }
+
     .subheading {
       font-size: 1.25rem;
       max-width: 800px;
-      margin: 0 auto 2rem;
+      margin: 1rem auto 2rem;
     }
+
     .cta-button {
       display: inline-block;
       background-color: var(--red);
@@ -105,121 +118,65 @@
       text-decoration: none;
       border-radius: 4px;
       transition: background-color 0.3s;
-      margin: 1rem 0;
-      border: none;
-      cursor: pointer;
+      margin: 1rem;
     }
-    .cta-button:hover, .cta-button:focus {
+
+    .cta-button:hover {
       background-color: var(--dark-red);
     }
-    .problems, .solutions, .testimonials, .guarantee, .faq {
+
+    .block {
       background-color: var(--dark-gray);
-      border-radius: 8px;
       padding: 3rem;
-      margin: 3rem auto;
+      border-radius: 8px;
+      margin: 3rem 0;
     }
-    .problem-list, .solution-list {
+
+    ul {
       list-style: none;
-      margin: 2rem 0;
+      padding-left: 0;
+      margin-top: 2rem;
     }
-    .problem-list li, .solution-list li {
+
+    ul li {
       margin-bottom: 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
     }
-    .problem-list li::before { content: "\1F6A8"; flex-shrink: 0; }
-    .solution-list li::before { content: "\1F525"; flex-shrink: 0; }
+
+    .problem-list li::before {
+      content: "🚨";
+      position: absolute;
+      left: 0;
+    }
+
+    .solution-list li::before {
+      content: "🔥";
+      position: absolute;
+      left: 0;
+    }
+
     .testimonial-card {
       background-color: var(--gray);
       border-left: 4px solid var(--red);
       padding: 2rem;
-      margin: 2rem 0;
       border-radius: 0 4px 4px 0;
+      margin: 2rem 0;
     }
-    .testimonial-author {
-      font-weight: 700;
-      margin-top: 1rem;
-      color: var(--light-gray);
-    }
-    .faq-item {
-      margin-bottom: 2rem;
-    }
-    .faq-question {
-      font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--red);
-    }
+
     .guarantee-box {
       border: 2px solid var(--red);
       padding: 2rem;
       text-align: center;
-      margin: 2rem 0;
       border-radius: 4px;
+      margin: 2rem 0;
     }
-    .guarantee-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .signup-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 2rem auto;
-    }
+
     .signup-form input {
+      width: 100%;
       padding: 1rem;
+      margin-bottom: 1rem;
       border-radius: 4px;
       border: 1px solid var(--gray);
-      background-color: var(--black);
+      background: var(--black);
       color: var(--white);
-    }
-    .signup-form input:focus {
-      outline: 2px solid var(--red);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: var(--dark-gray);
-      margin-top: 3rem;
-    }
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      section, .problems, .solutions, .testimonials, .guarantee, .faq {
-        padding: 2rem 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="#" class="logo">FASHION<span>LAUNCH</span></a>
-      <div class="nav-links">
-        <a href="#problems">Problems</a>
-        <a href="#solutions">Solution</a>
-        <a href="#testimonials">Results</a>
-        <a href="#guarantee">Guarantee</a>
-        <a href="#signup">Get Started</a>
-      </div>
-    </nav>
-  </header>
-  <!-- Sections (hero, problems, solutions, testimonials, guarantee, faq, signup, footer) à ajouter ici comme dans la version fournie précédemment -->
-</body>
-</html>
